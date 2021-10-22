@@ -1,0 +1,130 @@
+body{
+    display: flex;
+    align-items: center;
+    margin: 0px;
+    background-color: rgb(137, 179, 218);
+    height: 100vh;
+    flex-direction: column;
+}
+
+.display-game{
+    display: flex;
+    width: 900px;
+    height: 500px;
+    border: 2px solid black;
+    /* background-color: rgb(25, 46, 66); */
+    align-items: flex-end;
+    flex-direction: column-reverse;
+}
+
+canvas{
+    display: block;
+    border: 2px solid black;
+    background-color: rgb(128, 200, 223);
+    margin-top: 10px;
+
+}
+
+.chao{
+    width: 1000px;
+    height: 50px;
+    background-color: rgb(92, 71, 13);
+}
+
+.quadra{
+    position: relative;
+    height: 350px;
+    width: 1000px;
+}
+
+
+.player {
+    position: absolute;
+    height: 50%;
+    bottom: 0px;
+    right: 500px;
+}
+
+
+
+.cesta{
+    position: absolute;
+    height: 100%;
+    bottom: 0px;
+    right: 50px;
+
+}
+.controlls{
+    background-color: rgb(68, 238, 96);
+    height: 100vh;
+    width: 100vmax;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.buttom-arremessar{
+    display: inline-block;
+}
+
+.controlls-player{
+    display: flex;
+    border: 2px solid rgba(36, 29, 29, 0.781);
+    width: 250px;
+    height: 50%;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.label{
+    margin: 10px;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.conteudo{
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    display: inline-block;
+    border-radius: 5px;
+    background-color: white;
+    border: 1px solid rgba(36, 29, 29, 0.781);
+}
+
+.start-reset{
+    margin: 20px;
+    display: flex;
+    /* border: 2px solid rgba(36, 29, 29, 0.781); */
+    width: 200px;
+    height: 50%;
+    /* background-color: whitesmoke; */
+    border-radius: 20px;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+button{
+    width: 100px;
+    height: 30px;
+}
+
+.controlls-ball{
+    border: 2px solid rgba(36, 29, 29, 0.781);
+    width: 250px;
+    height: 85%;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+}
+
+.control{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

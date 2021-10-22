@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div class="display-game"> -->
+
+        <!-- <div class="chao"></div>
+        <div class="quadra">
+            <canvas class="bola"></canvas>
+           <img class="player" src="./Imagens/jogadorso.png" alt="Player">
+           <span class="bola"></span>
+           <img class="bola" src="./Imagens/bola.png" alt="Bola">
+           <img class="cesta" src="./Imagens/cesta340.png" alt="Cesta">
+        </div> -->
+        <canvas  width = "1200"
+        height = "500" ></canvas>
+        <div class="controlls">
+            <div class="controlls-player">
+                <span class="label">Distância em metros: </span>
+                <input class="conteudo" type="number" id="distancia" min="0" max="12" step="0.1" value="11">
+                <!-- <button class="buttom-arremessar" >Aremessar</button> -->
+            </div>
+
+            <div class="controlls-ball">
+                <div class="control">
+                    <span class="label">Velocidade inicial: </span>
+                    <input class="conteudo" type="number" id="v0" min="0" max="20" step="0.1" value="2">
+                </div>
+                <div class="control">
+                    <span class="label">Inclinação: </span>
+                    <input class="conteudo" type="number" id="angulo" min="0" max="90" step="1" value="45">
+                </div>
+            </div>
+
+            <div class="start-reset">
+                <button id="arremessar">Arremessar</button>
+                <button id="reset">Reset</button>
+            </div>
+        </div>
+    <!-- </div> -->
+    <script src="./index.js"></script>
+    <script src="./sprite.js"></script>
+</body>
+</html>
