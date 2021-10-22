@@ -1,27 +1,34 @@
 
 
 window.onload = function(){
-
     var cnv = document.querySelector("canvas")
     var ctx = cnv.getContext("2d")
 
+
+
+
+
+
+
+
+
     //back-grond
     var fundo = new Image()
-    fundo.src = "./Imagens/fundo2.jpg"
+    fundo.src = "https://i.postimg.cc/RZ7HDp2H/fundo2.jpg"
     
     //jogador
     var spriteSheet = new Image()
-    spriteSheet.src = "./Imagens/sprite2.png"
+    spriteSheet.src = "https://i.postimg.cc/0N9wRdqH/sprite2.png"
     var player = new Sprite(spriteSheet)
 
     //Bola
     var spriteBall = new Image()
-    spriteBall.src = "./Imagens/ball.png"
+    spriteBall.src = "https://i.postimg.cc/3JDpgxB9/ball.png"
     var ball = new Ball(spriteBall)
     
     //cesta
     var spriteCesta = new Image()
-    spriteCesta.src = "./Imagens/cesta340.png"
+    spriteCesta.src = "https://i.postimg.cc/Z5tNjzsm/cesta340.png"
     var cesta = new Cesta(spriteCesta)
 
     //tempo
@@ -35,13 +42,18 @@ window.onload = function(){
         if (game && frame){
         tempo += 1;
     }
-    }, 10);
+    }, 30);
 
     
 
     loop()
 
     function loop(){
+        let stylew = window.getComputedStyle(cnv).width;
+        let valor = parseInt(stylew.substr(0,stylew.search("px")));
+        cnv.width = valor
+        cnv.height = valor * 5 /12
+        
         window.requestAnimationFrame(loop, cnv)
         update()
         draw()
@@ -59,21 +71,23 @@ window.onload = function(){
 
     
     function draw(){
-
+        
+      
         ctx.clearRect(0,0, cnv.width, cnv.height) //Limpa a tela
-        ctx.drawImage(fundo, 300, -150, 900, 650, 0, 0, 1200, 500) //desenha o fundo
+        ctx.drawImage(fundo, 300, -150, 900, 650, 0, 0, cnv.width, cnv.height) //desenha o fundo
         
-        WriteRegua() //desenha a regua
+        WriteRegua(cnv) //desenha a regua
         
-        cesta.draw(ctx)//desenha a cesta
         
-        player.draw(ctx) //desenha o jogador
+        player.draw(ctx, cnv) //desenha o jogador
+        cesta.draw(ctx, cnv)//desenha a cesta
         
-        visualizer_time.draw(ctx, tempo)
+        visualizer_time.draw(ctx, tempo, cnv)
         
         if (frame){
-            ball.draw(ctx, tempo, game) //desenha a bola
-            visualizer_time.draw(ctx, tempo)
+            ball.vetores(ctx, tempo/100, cnv)
+            ball.draw(ctx, tempo, game, cnv) //desenha a bola
+            visualizer_time.draw(ctx, tempo, cnv)
         }
 
         
@@ -82,12 +96,13 @@ window.onload = function(){
     
     
     function WriteRegua(){
+        const pixel = cnv.width/1200
         ctx.fillStyle = 'rgb(177, 182, 158)';
-        ctx.fillRect(0, cnv.height - 35, 1185, 5);
+        ctx.fillRect(0  * pixel, (cnv.height - 35 * pixel ), 1185 * pixel, 5 * pixel);
         let x = 0
         for (x = 0; x < 12; x++){
-            ctx.font = '12px serif';
-            ctx.fillText(`${(x - 12) * -1 }m`, x * 100,  cnv.height - 40);
+            ctx.font = `${12 * pixel}px serif`;
+            ctx.fillText(`${(x - 12) * -1 }m`,( x * 100) * pixel,  cnv.height - 40 * pixel);
         }
     }
     

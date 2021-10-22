@@ -4,26 +4,21 @@ body{
     margin: 0px;
     background-color: rgb(137, 179, 218);
     height: 100vh;
+    
     flex-direction: column;
 }
 
-.display-game{
-    display: flex;
-    width: 900px;
-    height: 500px;
-    border: 2px solid black;
-    /* background-color: rgb(25, 46, 66); */
-    align-items: flex-end;
-    flex-direction: column-reverse;
-}
 
 canvas{
+    width : 87.848%;
+    height : auto;
     display: block;
     border: 2px solid black;
     background-color: rgb(128, 200, 223);
     margin-top: 10px;
 
 }
+
 
 .chao{
     width: 1000px;
@@ -56,12 +51,13 @@ canvas{
 }
 .controlls{
     background-color: rgb(68, 238, 96);
-    height: 100vh;
-    width: 100vmax;
+    width: 100%;
+    height: 25%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .buttom-arremessar{
     display: inline-block;
 }
@@ -71,6 +67,7 @@ canvas{
     border: 2px solid rgba(36, 29, 29, 0.781);
     width: 250px;
     height: 50%;
+    min-height: auto;
     background-color: whitesmoke;
     border-radius: 20px;
     align-items: center;
@@ -85,8 +82,8 @@ canvas{
 }
 
 .conteudo{
-    width: 40px;
-    height: 40px;
+    width: 20%;
+    height: 40%;
     margin: 10px;
     display: inline-block;
     border-radius: 5px;
@@ -127,4 +124,8 @@ button{
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.control input{
+    height: 100%;
 }
