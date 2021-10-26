@@ -33,21 +33,34 @@ window.onload = function(){
 
     //tempo
     var visualizer_time = new Tempo()
-
+    var vizualizer_pontuacao = new Pontuacao()
     var game = 0
     let tempo =  0
     var frame = 0
-    
+    var distancia = getDistancia()
+    let vizualizer_vetores = {
+        a : 0,
+        V0x :0,
+        V0y : 0
+
+    }
+    const  flag = {
+        value : 1
+    }
+    const pontuacao  = {
+        pts : 0
+    }
+
     var intervalo = setInterval(() => {//tempo
         if (game && frame){
         tempo += 1;
     }
-    }, 30);
+    }, 10);
 
-    
-
+    var objetos = []
+   
     loop()
-
+    
     function loop(){
         let stylew = window.getComputedStyle(cnv).width;
         let valor = parseInt(stylew.substr(0,stylew.search("px")));
@@ -58,19 +71,22 @@ window.onload = function(){
         update()
         draw()
     }
-
+    
     function update(){
         if (game == 1){
-            a = player.animation()
+            a = player.animation(ball, ctx, cnv)
             if(a == 1){
                 frame = a
             }
         }
         
     }
-
+    
     
     function draw(){
+
+
+        getCheckBox(vizualizer_vetores)
         
       
         ctx.clearRect(0,0, cnv.width, cnv.height) //Limpa a tela
@@ -80,16 +96,19 @@ window.onload = function(){
         
         
         player.draw(ctx, cnv) //desenha o jogador
-        cesta.draw(ctx, cnv)//desenha a cesta
+        teta_vet_inicial(ctx, cnv, Math.floor( player.contImg/6) )
         
         visualizer_time.draw(ctx, tempo, cnv)
-        
+        vizualizer_pontuacao.draw(pontuacao.pts, cnv, ctx)
         if (frame){
-            ball.vetores(ctx, tempo/100, cnv)
-            ball.draw(ctx, tempo, game, cnv) //desenha a bola
-            visualizer_time.draw(ctx, tempo, cnv)
+           
+            ball.vetores(ctx, tempo/100, cnv, vizualizer_vetores)
+            ball.draw(ctx, tempo, distancia, cnv) //desenha a bola
         }
-
+        cesta.draw(ctx, cnv)//desenha a cesta
+        if(flag.value == 1){
+          ball.checkColizao(objetos, cnv, pontuacao, flag)  
+        }
         
     }
 
@@ -118,7 +137,7 @@ window.onload = function(){
         frame = 0
         player.contImg = 0
         player.srcX = 0
-
+        player.acao = 1
    }
 
 
@@ -130,14 +149,20 @@ window.onload = function(){
             reset.onclick()
             game = 0
             arremessar.onclick()
+            player.acao = 1
         }else{
             ball.teta = getTeta()
             ball.v0 = getV0()
+            distancia = getDistancia()
             game = 1
+            flag.value  = 1
         }
    }
 
   
- 
 
+
+
+   ///colisores
+   objetos.push(new Colisor(1090, cesta.posY + 74, 45, 8, "cesta"))
 }

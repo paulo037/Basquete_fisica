@@ -8,28 +8,42 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- <div class="display-game"> -->
 
-        <!-- <div class="chao"></div>
-        <div class="quadra">
-            <canvas class="bola"></canvas>
-           <img class="player" src="./Imagens/jogadorso.png" alt="Player">
-           <span class="bola"></span>
-           <img class="bola" src="./Imagens/bola.png" alt="Bola">
-           <img class="cesta" src="./Imagens/cesta340.png" alt="Cesta">
-        </div> -->
         <canvas></canvas>
         <div class="controlls">
+            <div class="controlls-vet">
+                <div>
+
+                    <input class="check" type="checkbox"  name = "Vetor aceleração" checked>
+                    <label for="Vetor aceleração">Vetor aceleração</label>
+                    
+    
+                </div>
+                
+                
+                <div>
+                    
+                    <input class="check" type="checkbox" name = "Componente de V0 em x" checked>
+                    <label for="Componente de V0 em x">Componente de V0 em x</label>
+                    
+                </div>
+                <div>
+                    <input class="check" type="checkbox" name = "Componente de V0 em y" checked>
+                    <label for="Componente de V0 em y">Componente de V0 em y</label>
+
+                </div>
+            </div>
+
             <div class="controlls-player">
                 <span class="label">Distância em metros: </span>
-                <input class="conteudo" type="number" id="distancia" min="0" max="12" step="0.1" value="11">
+                <input class="conteudo" type="number" id="distancia" min="0" max="12" step="0.1" value="10">
      
             </div>
 
             <div class="controlls-ball">
                 <div class="control">
                     <span class="label">Velocidade inicial: </span>
-                    <input class="conteudo" type="number" id="v0" min="0" max="20" step="0.1" value="2">
+                    <input class="conteudo" type="number" id="v0" min="0" max="20" step="0.1" value="10">
                 </div>
                 <div class="control">
                     <span class="label">Inclinação: </span>
