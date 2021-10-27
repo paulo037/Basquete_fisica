@@ -95,21 +95,21 @@ window.onload = function(){
         WriteRegua(cnv) //desenha a regua
         
         
-        player.draw(ctx, cnv) //desenha o jogador
-        teta_vet_inicial(ctx, cnv, Math.floor( player.contImg/6) )
         
         visualizer_time.draw(ctx, tempo, cnv)
         vizualizer_pontuacao.draw(pontuacao.pts, cnv, ctx)
         if (frame){
-           
+            
             ball.vetores(ctx, tempo/100, cnv, vizualizer_vetores)
             ball.draw(ctx, tempo, distancia, cnv) //desenha a bola
         }
         cesta.draw(ctx, cnv)//desenha a cesta
         if(flag.value == 1){
-          ball.checkColizao(objetos, cnv, pontuacao, flag)  
+            ball.checkColizao(objetos, cnv, pontuacao, flag)  
         }
         
+        player.draw(ctx, cnv) //desenha o jogador
+        teta_vet_inicial(ctx, cnv, Math.floor( player.contImg/6) )
     }
 
     

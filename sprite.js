@@ -17,8 +17,18 @@ function Sprite(img){
     
     //////////função de desenho//////
     this.draw = function(ctx, cnv){
+        let d = getDistancia()
+
+        if (d > 12) {
+            d = 12
+        }
+
+        
+        if (d < 0) {
+            d = 0
+        }
         const pixel = cnv.width/1200
-        this.posX = 1200 - (getDistancia() *100) -50
+        this.posX = 1200 - ( d*100) -50
         ctx.drawImage(this.img, this.srcX, this.srcY, this.width, this.height, this.posX * pixel, this.posY * pixel, this.width * pixel , pixel *240)
     }
 
@@ -56,12 +66,7 @@ function Cesta(img){
     this.draw = function(ctx, cnv){
         const pixel = cnv.width/1200
         ctx.drawImage(this.img, this.srcX, this.srcY, this.width, this.height, this.posX * pixel, this.posY * pixel, this.width * pixel, this.height* pixel)
-        ctx.beginPath()
-        ctx.lineWidth = 1
-        ctx.strokeStyle = 'green'
-        ctx.moveTo(1080 * pixel, this. posY + 74 * pixel)
-        ctx.lineTo(1130 * pixel, this.posY + 74 * pixel)
-        ctx.stroke()
+     
     }
 }
 
